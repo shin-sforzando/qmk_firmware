@@ -1,0 +1,21 @@
+version: 2
+
+defaults: &defaults
+  machine: true
+  environment:
+    KEYBOARD: ergodox_ez
+    KEYMAP: qwerty_20181218
+
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - run:
+          name: Docker Build
+          command: util/docker_build.sh $KEYBOARD:default
+
+      - store_artifacts:
+          path: .build
