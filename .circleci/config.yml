@@ -1,6 +1,7 @@
 version: 2
 
 defaults: &defaults
+  machine: true
   environment:
     KEYBOARD: ergodox_ez
     KEYMAP: qwerty_20181218
@@ -11,6 +12,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - run: git submodule sync && git submodule update --init
 
       - run:
           name: Docker Build
