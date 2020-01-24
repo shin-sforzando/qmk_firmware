@@ -1,7 +1,6 @@
 version: 2
 
 defaults: &defaults
-  machine: true
   environment:
     KEYBOARD: ergodox_ez
     KEYMAP: qwerty_20181218
