@@ -18,5 +18,9 @@ jobs:
           name: Docker Build
           command: util/docker_build.sh ${KEYBOARD}:${KEYMAP}
 
+      - run:
+          name: Rename to store_artifacts
+          command: mv .build/${KEYBOARD}_${KEYMAP}.hex .build/compiled.hex
+
       - store_artifacts:
-          path: .build/*.hex
+          path: .build/compiled.hex
