@@ -4,7 +4,7 @@ defaults: &defaults
   machine: true
   environment:
     KEYBOARD: ergodox_ez
-    KEYMAP: qwerty_20181218
+    KEYMAP: ewnvb_20200124
 
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
 
       - run:
           name: Docker Build
-          command: util/docker_build.sh $KEYBOARD:default
+          command: util/docker_build.sh ${KEYBOARD}:${KEYMAP}
 
       - store_artifacts:
-          path: .build
+          path: .build/${KEYBOARD}_${KEYMAP}.hex
